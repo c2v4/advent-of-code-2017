@@ -4,7 +4,7 @@ fun checksum(input: String): Int =
         input
                 .split('\n')
                 .map {
-                    it.trim().split("\t")
+                    it.trim().split(Regex("\\s"))
                             .map { it.toInt() }
                 }
                 .map { ((it.max() ?: 0) - (it.min() ?: 0)) }
