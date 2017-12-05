@@ -15,7 +15,6 @@ fun spiral(n: Int): Int {
     else return (abs(k) + abs(k - (m - n - t))).toInt()
 }
 
-
 fun main(args: Array<String>) {
     print(spiral("day3.txt".asResource().toInt()))
 }
