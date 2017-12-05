@@ -33,6 +33,11 @@ object Day4PlusSpec : Spek({
                 Assertions.assertThat(passphrase2("oiii ioii iioi iiio")).isEqualTo(false)
             }
         }
+        on("jbkuw kwir rkiw ubwkj") {
+            it("is not valid - kwir - rkiw") {
+                Assertions.assertThat(passphrase2("jbkuw kwir rkiw ubwkj")).isEqualTo(false)
+            }
+        }
 
     }
 })
