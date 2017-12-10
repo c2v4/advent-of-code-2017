@@ -16,10 +16,10 @@ fun garbage(input: String): Int =
         }).score
 
 
-data class state(val score: Int = 0,
-                 val level: Int = 0,
-                 val skip: Boolean = false,
-                 val inGarbage: Boolean = false)
+internal data class state(val score: Int = 0,
+                          val level: Int = 0,
+                          val skip: Boolean = false,
+                          val inGarbage: Boolean = false)
 
 fun main(args: Array<String>) {
     print(garbage("day9.txt".asResource()))
