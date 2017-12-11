@@ -2,13 +2,14 @@ group 'com.c2v4'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.1.4-3'
+    ext.kotlin_version = '1.2.10'
 
     repositories {
         mavenCentral()
+        maven { url "https://dl.bintray.com/kotlin/kotlin-dev/" }
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: kotlin_version
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.2'
     }
 }
@@ -28,10 +29,11 @@ repositories {
     mavenCentral()
     maven { url "http://dl.bintray.com/jetbrains/spek" }
     maven { url "http://jcenter.bintray.com" }
+    maven { url "https://dl.bintray.com/kotlin/kotlin-dev/" }
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jre8', version: kotlin_version
     compile "org.funktionale:funktionale-all:1.2"
     testCompile 'org.mockito:mockito-core:2.8.9'
     testCompile 'org.assertj:assertj-core:3.8.0'
