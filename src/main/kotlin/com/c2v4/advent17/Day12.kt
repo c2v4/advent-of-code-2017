@@ -5,15 +5,20 @@ import com.google.common.graph.GraphBuilder
 
 
 fun graph(input: String): Int =
-        input.split('\n')
-                .map { it.trim() }
-                .map { it.split(" <-> ") }
-                .fold(GraphBuilder.undirected().allowsSelfLoops(true).build<Int>(), { acc, list ->
-                    list.last().split(", ").forEach {
-                        acc.putEdge(list.first().toInt(), it.toInt())
-                    }
-                    acc
-                }).let { graph: Graph<Int> -> multilevelSuccessors(graph, emptySet(), 0) }.size
+        buildGraph(input)
+                .let { graph: Graph<Int> -> multilevelSuccessors(graph, emptySet(), 0) }.size
+
+fun buildGraph(input: String): Graph<Int> {
+    return input.split('\n')
+            .map { it.trim() }
+            .map { it.split(" <-> ") }
+            .fold(GraphBuilder.undirected().allowsSelfLoops(true).build<Int>(), { acc, list ->
+                list.last().split(", ").forEach {
+                    acc.putEdge(list.first().toInt(), it.toInt())
+                }
+                acc
+            })
+}
 
 fun multilevelSuccessors(graph: Graph<Int>, acc: Set<Int>, i: Int): Set<Int> {
     if (acc.contains(i)) return acc
