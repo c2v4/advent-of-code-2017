@@ -4,7 +4,7 @@ import com.google.common.graph.Graph
 import com.google.common.graph.GraphBuilder
 
 
-fun graph(input: String): Any =
+fun graph(input: String): Int =
         input.split('\n')
                 .map { it.trim() }
                 .map { it.split(" <-> ") }
@@ -15,7 +15,7 @@ fun graph(input: String): Any =
                     acc
                 }).let { graph: Graph<Int> -> multilevelSuccessors(graph, emptySet(), 0) }.size
 
-tailrec fun multilevelSuccessors(graph: Graph<Int>, acc: Set<Int>, i: Int): Set<Int> {
+fun multilevelSuccessors(graph: Graph<Int>, acc: Set<Int>, i: Int): Set<Int> {
     if (acc.contains(i)) return acc
     return graph.successors(i).flatMap { multilevelSuccessors(graph, acc.plus(i), it) }.toSet()
 }
