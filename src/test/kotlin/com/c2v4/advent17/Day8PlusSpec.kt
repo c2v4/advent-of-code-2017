@@ -16,6 +16,5 @@ object Day8PlusSpec : Spek({
                         "c inc -20 if c == 10")).isEqualTo(10)
             }
         }
-
     }
 })

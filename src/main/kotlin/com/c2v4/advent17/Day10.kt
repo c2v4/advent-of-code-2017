@@ -3,7 +3,6 @@ package com.c2v4.advent17
 import java.lang.Math.min
 import java.util.*
 
-
 fun hash(listSize: Int, input: String): Int =
         input.split(',').map { it.toInt() }.fold(HashState((0 until listSize).toList()),
                 { hashState, i ->
@@ -29,7 +28,7 @@ fun reduceHashState(hashState: HashState, input: Int): HashState {
 
     return HashState((staticPart +
             reversedPart)
-            .rotate(currentPosition-staticPart.size),
+            .rotate(currentPosition - staticPart.size),
             (currentPosition + input + skipSize) % list.size,
             skipSize + 1)
 }
@@ -40,7 +39,6 @@ fun <T> List<T>.rotate( shift: Int): List<T> {
     return newValues
 }
 
-
 fun main(args: Array<String>) {
-    print(hash(256,"day10.txt".asResource()))
+    print(hash(256, "day10.txt".asResource()))
 }

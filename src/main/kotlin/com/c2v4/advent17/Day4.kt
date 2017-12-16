@@ -1,6 +1,6 @@
 package com.c2v4.advent17
 
-fun passphrase(input:String):Boolean {
+fun passphrase(input: String): Boolean {
     val split = input.split(" ")
     return split == split.distinct()
 }

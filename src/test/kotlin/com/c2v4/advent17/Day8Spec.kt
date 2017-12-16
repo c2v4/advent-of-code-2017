@@ -25,6 +25,5 @@ object Day8Spec : Spek({
                         "c inc -20 if c == 10")).isEqualTo(1)
             }
         }
-
     }
 })

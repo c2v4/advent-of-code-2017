@@ -3,7 +3,6 @@ package com.c2v4.advent17
 import com.google.common.graph.Graph
 import com.google.common.graph.GraphBuilder
 
-
 fun graph(input: String): Int =
         buildGraph(input)
                 .let { graph: Graph<Int> -> multilevelSuccessors(graph, emptySet(), 0) }.size

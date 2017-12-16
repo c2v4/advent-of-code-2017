@@ -1,6 +1,5 @@
 package com.c2v4.advent17
 
-
 fun hash2(input: String): Any =
         input.toCharArray().map { it.toInt() }.let {
             it + listOf(17, 31, 73, 47, 23)

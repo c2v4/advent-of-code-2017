@@ -58,6 +58,5 @@ object Day7Spec : Spek({
                         "cntj (57)")).isEqualTo("tknk")
             }
         }
-
     }
 })

@@ -23,6 +23,5 @@ object Day4Spec : Spek({
                 Assertions.assertThat(passphrase("aa bb cc dd aaa")).isEqualTo(true)
             }
         }
-
     }
 })

@@ -4,7 +4,6 @@ import java.awt.Point
 import java.lang.Math.abs
 import java.lang.Math.max
 
-
 fun hex(input: String): Int =
         input.split(',').fold(Point(0, 0),
                 { currentLocation, instruction ->
@@ -23,13 +22,11 @@ fun hex(input: String): Int =
             max(abs(x), abs(y))
         }
 
-
 private operator fun Point.component2(): Int = y
 
 private operator fun Point.component1(): Int = x
 
 private fun Point.moveNew(plusX: Int, plusY: Int): Point = Point(x + plusX, y + plusY)
-
 
 fun main(args: Array<String>) {
     print(hex("day11.txt".asResource()))

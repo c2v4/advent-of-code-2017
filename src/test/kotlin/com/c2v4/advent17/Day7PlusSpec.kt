@@ -44,6 +44,5 @@ object Day7PlusSpec : Spek({
                         "cntj (57)")).isEqualTo(60)
             }
         }
-
     }
 })

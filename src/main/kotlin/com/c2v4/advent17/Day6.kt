@@ -16,7 +16,7 @@ fun debugger(input: String): Int {
                         )
         maxWith?.let {
             tempList[maxWith.first] = 0
-            (0 until it.second).forEach { index -> tempList[(it.first + 1 + index) % tempList.size]+=1 }
+            (0 until it.second).forEach { index -> tempList[(it.first + 1 + index) % tempList.size] += 1 }
         }
         newList = tempList
     }

@@ -52,7 +52,6 @@ private class Spiral {
             }
         }.sum()
     }
-
 }
 
 private data class Node(val x: Int, val y: Int, val value: Int)

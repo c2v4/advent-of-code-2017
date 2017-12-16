@@ -25,6 +25,5 @@ object Day6Spec : Spek({
                 Assertions.assertThat(debugger("0   2   7   0")).isEqualTo(5)
             }
         }
-
     }
 })

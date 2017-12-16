@@ -21,6 +21,5 @@ object Day5PlusSpec : Spek({
                         "-3\n")).isEqualTo(10)
             }
         }
-
     }
 })

@@ -13,7 +13,6 @@ fun cpu2(input: String): Int =
                     map to Math.max(map.maxBy { it.value }?.value ?: 0, maxSoFar) })
                 .second
 
-
 fun main(args: Array<String>) {
     print(cpu2("day8.txt".asResource()))
 }

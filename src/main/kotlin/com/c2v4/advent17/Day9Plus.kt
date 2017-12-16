@@ -2,12 +2,12 @@ package com.c2v4.advent17
 
 fun garbage2(input: String): Int =
         input.toCharArray().fold(garbageCollector(), { acc: garbageCollector, c: Char ->
-            when  {
+            when {
                 acc.skip -> return@fold acc.copy(skip = false)
-                c=='!' -> return@fold acc.copy(skip = true)
-                acc.inGarbage && c != '>' -> return@fold acc.copy(score = acc.score+1)
-                c=='<' -> return@fold acc.copy(inGarbage = true)
-                c=='>' -> return@fold acc.copy(inGarbage = false)
+                c == '!' -> return@fold acc.copy(skip = true)
+                acc.inGarbage && c != '>' -> return@fold acc.copy(score = acc.score + 1)
+                c == '<' -> return@fold acc.copy(inGarbage = true)
+                c == '>' -> return@fold acc.copy(inGarbage = false)
                 else -> return@fold acc
             }
         }).score

@@ -1,6 +1,5 @@
 package com.c2v4.advent17
 
-
 fun cpu(input: String): Int =
         input
                 .split("\n").map { it.trim() }.map { it.split(" ") }.map {
@@ -25,7 +24,6 @@ fun Instruction.run(registers: Map<String, Int>): Map<String, Int> {
     }
     return registers
 }
-
 
 data class Predicate(val register: String, val value: Int, val condition: Condition)
 
@@ -52,7 +50,6 @@ enum class Condition(private val function: (a: Int, b: Int) -> Boolean) {
                 "!=" -> NOT_EQUAL
                 else -> throw IllegalArgumentException()
             }
-
         }
     }
 
@@ -69,14 +66,11 @@ enum class Operation(private val function: (a: Int, b: Int) -> Int) {
                 "dec" -> DECREASE
                 else -> throw IllegalArgumentException()
             }
-
         }
     }
 
     fun invoke(a: Int, b: Int): Int = function.invoke(a, b)
-
 }
-
 
 fun main(args: Array<String>) {
     print(cpu("day8.txt".asResource()))

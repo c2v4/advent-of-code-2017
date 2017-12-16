@@ -41,7 +41,6 @@ private fun createDisc(name: String,
                             tower)
                 } ?: emptyList())
 
-
 fun main(args: Array<String>) {
     print(tower2("day7.txt".asResource()))
 }

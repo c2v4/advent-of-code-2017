@@ -6,11 +6,10 @@ fun maze2(input: String): Int {
     var pointer = 0
     while (pointer < list.size) {
         val temp = list[pointer]
-        if(list[pointer]>2){
+        if (list[pointer]>2) {
             list[pointer] -= 1
-        }else{
+        } else {
             list[pointer] += 1
-
         }
         pointer += temp
         i++

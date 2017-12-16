@@ -16,11 +16,11 @@ fun debugger2(input: String): Int {
                         )
         maxWith?.let {
             tempList[maxWith.first] = 0
-            (0 until it.second).forEach { index -> tempList[(it.first + 1 + index) % tempList.size]+=1 }
+            (0 until it.second).forEach { index -> tempList[(it.first + 1 + index) % tempList.size] += 1 }
         }
         newList = tempList
     }
-    return states.size-states.indexOf(newList)
+    return states.size - states.indexOf(newList)
 }
 
 fun main(args: Array<String>) {
