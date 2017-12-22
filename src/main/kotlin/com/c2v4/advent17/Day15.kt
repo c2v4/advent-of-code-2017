@@ -4,7 +4,7 @@ fun generator(input: String,
               genAMultiplier: Int = 16807,
               genBMultiplier: Int = 48271,
               divisor: Long = 2_147_483_647,
-              numberOfSamples: Long = 40_000_000): Any =
+              numberOfSamples: Long = 40_000_000): Int =
     input.split('\n').map { it.split(Regex("\\s")).last().toLong() }.let {
         (0 until numberOfSamples).fold(it[0] to it[1] to 0, { (generators, score), _ ->
             val genA = generators.first.times(genAMultiplier).rem(divisor)

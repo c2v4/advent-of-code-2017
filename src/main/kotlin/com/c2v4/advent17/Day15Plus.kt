@@ -6,7 +6,7 @@ fun generator2(input: String,
                divisor: Long = 2_147_483_647,
                genADivisor: Int = 4,
                genBDivisor: Int = 8,
-               numberOfSamples: Long = 5_000_000): Any =
+               numberOfSamples: Long = 5_000_000): Int =
     input.split('\n').map { it.split(Regex("\\s")).last().toLong() }.let {
         (0 until numberOfSamples).fold(it[0] to it[1] to 0, { (generators, score), _ ->
             var genA = generators.first.times(genAMultiplier).rem(divisor)
