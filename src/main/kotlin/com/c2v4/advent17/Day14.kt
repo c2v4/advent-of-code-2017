@@ -17,5 +17,5 @@ fun cardinality(int: Int): Int {
 }
 
 fun main(args: Array<String>) {
-    print(defrag("day14.txt".asResource()))
+    print(defrag("day14.txt".asResource().trim()))
 }
