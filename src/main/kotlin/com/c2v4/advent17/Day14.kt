@@ -13,7 +13,6 @@ fun cardinality(int: Int): Int {
         count++
     }
     return count
-
 }
 
 fun main(args: Array<String>) {

@@ -6,9 +6,9 @@ fun dance2(input: String, letters: Int = 16): String {
     var current = (0 until letters).map { (it + aLetterCode).toChar() }
 
     repeat(iterations) {
-        if(memoize.contains(current)) return memoize[iterations % memoize.size].joinToString("")
+        if (memoize.contains(current)) return memoize[iterations % memoize.size].joinToString("")
         memoize.add(current)
-        current=function.invoke(current)
+        current = function.invoke(current)
     }
     return current.joinToString("")
 }
@@ -31,7 +31,6 @@ fun getFunction(input: String): (List<Char>) -> List<Char> {
         })
     }
 }
-
 
 fun main(args: Array<String>) {
     print(dance2("day16.txt".asResource().trim()))

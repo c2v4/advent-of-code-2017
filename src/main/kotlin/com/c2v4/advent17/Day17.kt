@@ -11,7 +11,6 @@ fun spinlock(input: String, end: Int = 2017): Int = (1..end).fold(
     list[list.indexOf(end) + 1 % list.size]
 }
 
-
 fun main(args: Array<String>) {
     print(spinlock("day17.txt".asResource().trim()))
 }

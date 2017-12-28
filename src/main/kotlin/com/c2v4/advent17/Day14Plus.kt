@@ -29,7 +29,7 @@ fun findGroup(grid: List<List<Boolean>>,
     val withUp = withRight
         .plus(findGroup(grid, pair.first to pair.second - 1, withRight))
     return withUp
-        .plus(findGroup(grid,pair.first to pair.second+1, withUp))
+        .plus(findGroup(grid, pair.first to pair.second + 1, withUp))
 }
 
 private fun buildGrid(input: String) =
@@ -37,7 +37,6 @@ private fun buildGrid(input: String) =
         .map { bitHash(input.trim() + "-" + it) }
         .map { it.fold(emptyList<Boolean>(), { acc, i -> acc.plus(i.toBooleanArray(8)) }) }
         .fold(emptyList<List<Boolean>>(), { acc, list -> acc.plusElement(list) })
-
 
 fun Int.toBooleanArray(minLength: Int) = this.toString(2).padStart(minLength,
     '0').toCharArray().map { it == '1' }
