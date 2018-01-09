@@ -21,8 +21,6 @@ fun Point3.manhattan(): Int = (x * x) + (y * y) + (z * z)
 
 data class Particle(val position: Point3, val velocity: Point3, val acceleration: Point3)
 
-//p=<3020,-168,-204>, v=<431,-24,-25>, a=<-32,2,5>
-
 fun main(args: Array<String>) {
     print(particles("day20.txt".asResource()))
 }
