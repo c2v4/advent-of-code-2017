@@ -48,11 +48,18 @@ data class Point(val x: Int, val y: Int)
 
 enum class Direction(private val transform: (Point) -> Point) {
     NORTH({ point -> point.copy(y = point.y - 1) }),
-    SOUTH({ point -> point.copy(y = point.y + 1) }),
     WEST({ point -> point.copy(x = point.x - 1) }),
+    SOUTH({ point -> point.copy(y = point.y + 1) }),
     EAST({ point -> point.copy(x = point.x + 1) });
 
-    fun movePoint(point: Point):Point = transform(point)
+    companion object {
+        val IN_ORDER = listOf(NORTH, EAST, SOUTH, WEST)
+    }
+
+    fun movePoint(point: Point): Point = transform(point)
+
+    fun left() = IN_ORDER[(IN_ORDER.size + IN_ORDER.indexOf(this)-1) % IN_ORDER.size]
+    fun right() = IN_ORDER[(IN_ORDER.indexOf(this)+1) % IN_ORDER.size]
 }
 
 fun main(args: Array<String>) {
