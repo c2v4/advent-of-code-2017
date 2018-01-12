@@ -44,13 +44,13 @@ fun tubes(input: String): String = input.split("\n").map { it.toCharArray() }.le
     return code
 }
 
-data class Point(val x: Int, val y: Int)
+data class Point(var x: Int, var y: Int)
 
-enum class Direction(private val transform: (Point) -> Point) {
-    NORTH({ point -> point.copy(y = point.y - 1) }),
-    WEST({ point -> point.copy(x = point.x - 1) }),
-    SOUTH({ point -> point.copy(y = point.y + 1) }),
-    EAST({ point -> point.copy(x = point.x + 1) });
+enum class Direction(private val transform: (Point) -> Point,val xModifier:Int=0,val yModifier:Int=0) {
+    NORTH({ point -> point.copy(y = point.y - 1) },yModifier = -1),
+    WEST({ point -> point.copy(x = point.x - 1) },xModifier = -1),
+    SOUTH({ point -> point.copy(y = point.y + 1) },yModifier = 1),
+    EAST({ point -> point.copy(x = point.x + 1) },xModifier = 1);
 
     companion object {
         val IN_ORDER = listOf(NORTH, EAST, SOUTH, WEST)
@@ -58,8 +58,9 @@ enum class Direction(private val transform: (Point) -> Point) {
 
     fun movePoint(point: Point): Point = transform(point)
 
-    fun left() = IN_ORDER[(IN_ORDER.size + IN_ORDER.indexOf(this)-1) % IN_ORDER.size]
-    fun right() = IN_ORDER[(IN_ORDER.indexOf(this)+1) % IN_ORDER.size]
+    fun left() = IN_ORDER[(IN_ORDER.size + IN_ORDER.indexOf(this) - 1) % IN_ORDER.size]
+    fun right() = IN_ORDER[(IN_ORDER.indexOf(this) + 1) % IN_ORDER.size]
+    fun reverse() = IN_ORDER[(IN_ORDER.indexOf(this) + IN_ORDER.size / 2) % IN_ORDER.size]
 }
 
 fun main(args: Array<String>) {
