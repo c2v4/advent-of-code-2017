@@ -52,10 +52,7 @@ val states = mapOf(
         Action(false, RIGHT,'A')
     )
 )
-/*
-Begin in state A.
-Perform a diagnostic checksum after 12794428 steps.
- */
+
 data class State(val action0:Action,val action1:Action)
 
 data class Action(val write:Boolean, val move:Direction25,val newState:Char)
